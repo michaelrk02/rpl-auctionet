@@ -18,6 +18,7 @@ ALTER TABLE `pengiriman`
 DROP CONSTRAINT `FK_Pengiriman_Produk`,
 DROP CONSTRAINT `FK_Pengiriman_Penerima`;
 
+DROP TABLE `auctioneer`;
 DROP TABLE `produk`;
 DROP TABLE `bidder`;
 DROP TABLE `saldo`;

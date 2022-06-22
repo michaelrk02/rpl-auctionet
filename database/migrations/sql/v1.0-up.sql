@@ -1,3 +1,11 @@
+CREATE TABLE `auctioneer` (
+    `id` CHAR(36),
+    `email` VARCHAR(254),
+    `password` CHAR(60),
+    `nama` VARCHAR(128),
+    PRIMARY KEY (`id`)
+);
+
 CREATE TABLE `produk` (
     `id` CHAR(36),
     `nama` VARCHAR(128),
@@ -17,6 +25,7 @@ CREATE TABLE `bidder` (
     `id` CHAR(36),
     `nama` VARCHAR(128),
     `email` VARCHAR(254),
+    `password` CHAR(60),
     `no_telepon` VARCHAR(24),
     `alamat` TEXT,
     PRIMARY KEY (`id`)
@@ -32,7 +41,8 @@ CREATE TABLE `saldo_riwayat` (
     `id` CHAR(36),
     `saldo` CHAR(36),
     `waktu` DATETIME,
-    `jenis` VARCHAR(16),
+    `jenis` VARCHAR(32),
+    `keterangan` VARCHAR(128),
     `nominal` INT,
     PRIMARY KEY (`id`)
 );
