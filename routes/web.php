@@ -16,7 +16,7 @@ use App\Http\Controllers\Auctioneer;
 */
 
 Route::get('/', function (Request $request) {
-    return redirect()->route('bidder');
+    return redirect()->route('bidder.home');
 });
 
 Route::prefix('bidder')->group(function () {
@@ -48,6 +48,9 @@ Route::prefix('bidder')->group(function () {
 
         Route::get('/reset', 'reset')->name('bidder.auth.reset');
         Route::post('/reset', 'doResetPassword');
+
+        Route::get('/profile', 'profile')->name('bidder.auth.profile');
+        Route::post('/profile', 'update');
     });
 
     Route::group([
@@ -67,8 +70,6 @@ Route::prefix('bidder')->group(function () {
         'middleware' => 'auth:bidder'
     ], function () {
         Route::get('/semua', 'semua')->name('bidder.pengiriman.semua');
-
-        Route::get('/lihat/{pengiriman}', 'lihat')->name('bidder.pengiriman.lihat');
     });
 
     Route::group([
