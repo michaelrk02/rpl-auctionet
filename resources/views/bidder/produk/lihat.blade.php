@@ -141,7 +141,7 @@
     height: 800px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5),
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
 
     }
     .box-1{
@@ -230,9 +230,9 @@
     border-radius: 10px;
     }
     table{
-        border-radius: 10px;
-        overflow: hidden;
-        opacity: .9;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: .9;
     }
 </style>
 @endpush

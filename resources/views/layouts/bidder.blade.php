@@ -3,13 +3,13 @@
 @section('body')
 <nav class="navbar fixed-top navbar-dark  py-3 justify-content-center"  >
     <div class="container-xxl text-white" style="padding-left:40px; padding-right:40px">
-        <a href="#" class=" align-items-center col-md-3 mb-2 mb-md-0">
+        <a href="{{ route('bidder.home') }}" class=" align-items-center col-md-3 mb-2 mb-md-0">
            <img src="/assets/img/auc-logo.png" alt="" style="width:90px ;">
         </a>
         <ul class="nav col-12 col-md-auto mb-2 w-50 justify-content-around mb-md-0 ">
             <li class="nav-item"><a href="{{ route('bidder.home') }}" class="nav-link px-2 fw-bold link-light">Home</a></li>
             <li class="nav-item"><a href="{{ route('bidder.produk.semua') }}" class="nav-link px-2 fw-bold link-light">Products</a></li>
-            <li class="nav-item"><a href="about.php" class="nav-link px-2 fw-bold link-light">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 fw-bold link-light">About</a></li>
         </ul>
         <div class="col-md-3 text-end">
             <button type="button" class="btn btn-primary fw-bold">Login</button>
@@ -52,21 +52,14 @@
     }
     nav{
         background-color:#00000080;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+
     }
     nav ul li{
         transition: .2s;
     }
     nav ul li:hover{
         opacity: 0.9;
-    }
-    .slide-banner{
-    background-color: rgba(0, 0, 0, 0.5);
-    width:100%;
-    height: 400px;
-    margin-top: 120px;
-    padding:100px 130px 100px 150px;
-    color: white;
-    
     }
     footer{
         background-color:#00000080;
