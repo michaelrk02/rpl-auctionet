@@ -1,3 +1,7 @@
+@php
+use App\Libraries\Auctionet;
+@endphp
+
 @extends('layouts.bidder')
 
 @section('title', 'Bidding List')
@@ -5,110 +9,21 @@
 @section('content')
 
 <div class="list-product">
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
+    @foreach ($daftarProduk as $produk)
+        <div class="card bg-transparent mb-5" style="width: 18rem;">
+            <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
+            <div class="card-body text-body">
+                <h5 class="card-title mb-3 text-light">{{ $produk->nama }}</h5>
+                <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
+                    <span class="buy-now">{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></p> 
+                <p class="card-text text-light"> <strong>Start Bid: </strong>
+                    <span class="start-bid">{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></p>
+                <div class="card-btn ">
+                    <a href="{{ route('bidder.produk.lihat', ['produk' => $produk->id]) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-transparent mb-5" style="width: 18rem;">
-        <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
-        <div class="card-body text-body">
-            <h5 class="card-title mb-3 text-light">Product title</h5>
-            <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
-                <span class="buy-now">Rp.XXX.XXX,00</span></p> 
-            <p class="card-text text-light"> <strong>Start Bid: </strong>
-                <span class="start-bid">Rp.XXX.XXX,00</span></p>
-            <div class="card-btn ">
-                <a href="{{ route('bidder.produk.lihat', ['produk' => 'blabla']) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>
-            </div>
-        </div>
-    </div>
+    @endforeach
 
 </div>
 

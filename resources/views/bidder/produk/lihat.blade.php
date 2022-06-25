@@ -1,3 +1,7 @@
+@php
+use App\Libraries\Auctionet;
+@endphp
+
 @extends('layouts.bidder')
 
 @section('title', 'Products List')
@@ -11,24 +15,19 @@
             style="width:420px; height:420px; object-fit:cover; border-radius:15px">
             <div class="box-1-right d-flex flex-column justify-content-start align-items-start">
                 <div class="product-title">
-                    <h4 class="text-light">Product title</h4>
+                    <h4 class="text-light">{{ $produk->nama }}</h4>
                 </div>
                 <div class="product-desc mt-1 pb-2">
                     <h5 class="text-light">Description</h5>
-                    <p class="text-light">
-                        Product Description Product Description Product Description Product Description
-                        Product Description Product Description Product Description Product Description
-                        Product Description Product Description Product Description Product Description
-                        Product Description Product Description Product Description Product Description
-                    </p>
+                    <p class="text-light markdown">{{ $produk->deskripsi }}</p>
                 </div>
                 <div class="product-info mt-3 pb-2">
                     <p class="info-close text-light"><b>Close Bid: </b>
-                        <span>00:00:00</span></p>
+                        <span>{{ $produk->lelangWaktuSelesai() }}</span></p>
                     <p class="info-start text-light"><b>Start Bid: </b>
-                        <span>Rp. XXX.XXX,00</span></p>
+                        <span>{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></p>
                     <p class="info-buy text-light"><b>Buy Now: </b>
-                        <span>Rp. XXX.XXX,00</span></p>
+                        <span>{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></p>
                 </div>
                 <div class="">
                     <a href="#" class="btn btn-make-bid btn-primary text-light mt-3"
@@ -56,42 +55,21 @@
                 <table class="table table-dark table-hover table-striped mb-0 text-center">
                   <thead class="">
                     <tr>
-                      <th scope="col" style="width: 33%">Rank</th>
-                      <th scope="col" style="width: 33%">Bidder</th>
-                      <th scope="col" style="width: 33%">Bid</th>
+                      <th scope="col">Rank</th>
+                      <th scope="col">Bidder</th>
+                      <th scope="col">Bid</th>
+                      <th scope="col">Waktu</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">6</th>
-                      <td>John Doe</td>
-                      <td>Rp.XXX.XXX,00</td>
-                    </tr>
+                    @foreach ($produk->listTawaran as $i => $tawaran)
+                        <tr>
+                            <th scope="row">{{ $i + 1 }}</th>
+                            <td>{{ $tawaran->nama }}</td>
+                            <td>{{ Auctionet::rupiah($tawaran->pivot->harga) }}</td>
+                            <td>{{ $tawaran->pivot->waktu }}</td>
+                        </tr>
+                    @endforeach
                   </tbody>
                 </table>
               
