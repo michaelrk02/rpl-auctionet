@@ -58,7 +58,7 @@ use App\Libraries\Auctionet;
                       <th scope="col">Rank</th>
                       <th scope="col">Bidder</th>
                       <th scope="col">Bid</th>
-                      <th scope="col">Waktu</th>
+                      <th scope="col">Time</th>
                     </tr>
                   </thead>
                   <tbody>
