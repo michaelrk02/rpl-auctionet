@@ -12,8 +12,8 @@
             <li class="nav-item"><a href="#" class="nav-link px-2 fw-bold link-light">About</a></li>
         </ul>
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-primary fw-bold">Login</button>
-            <button type="button" class="btn btn-outline-primary me-2 fw-bold text-light">Register</button>
+            <a href="{{ route('bidder.auth.login') }}"><button type="button" class="btn btn-primary fw-bold">Login</button></a>
+            <a href="{{ route('bidder.auth.register') }}"><button type="button" class="btn btn-outline-primary me-2 fw-bold text-light">Register</button></a>
         </div>
     </div>
 </nav>
