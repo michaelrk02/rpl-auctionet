@@ -23,7 +23,7 @@ use App\Libraries\Auctionet;
                 </div>
                 <div class="product-info mt-3 pb-2">
                     <p class="info-close text-light"><b>Close Bid: </b>
-                        <span>{{ $produk->lelangWaktuSelesai() }}</span></p>
+                        <span>{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></p>
                     <p class="info-start text-light"><b>Start Bid: </b>
                         <span>{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></p>
                     <p class="info-buy text-light"><b>Buy Now: </b>
@@ -96,7 +96,7 @@ use App\Libraries\Auctionet;
                 <div class="text-dark"> <strong>Buy Now: </strong>
                     <span class="buy-now">{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></div>
                 <div class="text-dark"> <strong>Close Bid: </strong>
-                    <span class="close-bid">{{ $produk->lelangWaktuSelesai() }}</span></div>
+                    <span class="close-bid">{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></div>
                 <div class="form-group text-left">
                     <label for="make-bid" class="make-bid mt-3"><strong>Make A Bid</strong></label>
                     <input type="text" class="form-control mt-2" id="bid" name="harga">
