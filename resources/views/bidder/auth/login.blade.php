@@ -7,9 +7,7 @@ use App\Libraries\Auctionet;
 @section('title', 'Login Bidder')
 
 @section('content')
-
-<body>
-    <form action="">
+    <form method="post" action="{{ route('bidder.auth.login') }}">
         @csrf
         <div class="container">
             <div class="row">
@@ -22,34 +20,28 @@ use App\Libraries\Auctionet;
                 
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Email</label>
-                    <input type="email" class="form-control mb-3" placeholder="Email" required>
+                    <input type="email" class="form-control mb-3" placeholder="Email" required name="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Password" required>
+                    <input type="password" class="form-control mb-3" placeholder="Password" required name="password">
                 </div>
                
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-signin btn-primary w-100 fw-bold" >Sign In</button>
                 </div>
-                <div class="form-group col-md-12 d-flex justify-content-between mt-2 mb-3">
+                <div class="form-group col-md-12 mt-2 mb-3">
                     <div class="text-left">
-                        <label class="text-black" style="font-size: 13px">
-                            <input type="checkbox" checked="checked" name="remember" style="accent-color: #bd0000"> Remember me
-                          </label>
-                    </div>
-                    <div class="text-left">
-                        <a href="{{ route('bidder.auth.forgot')}}" class="text-decoration-none text-black" style="font-size: 13px">Forgot Password?</a>
+                        <a href="{{ route('bidder.auth.forgot')}}" class="text-decoration-none fw-bold" style="font-size: 13px">Forgot Password?</a>
                     </div>
                 </div>
                 <p class="text-center text-light" style="font-size: 13px">Not a bidder yet? <a class="text-decoration-none fw-bold" href="{{ route('bidder.auth.register')}}">Register Now!</a></p>
             </div>            
         </div>
     </form>
-	
-</body>
+@endsection
 
-    @push('styles')
+@push('styles')
 <style>
 .container{
     margin-top: 130px;

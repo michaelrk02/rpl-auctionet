@@ -17,8 +17,7 @@ use App\Libraries\Auctionet;
     // - Input alamat rumah
     // - Tombol simpan
     // *) password bidder akan terganti apabila input tidak kosongan --}}
-<body>
-    <form action="">
+    <form method="post" action="{{ route('bidder.auth.profile') }}">
         @csrf
         <div class="container">
             <div class="row">
@@ -27,37 +26,35 @@ use App\Libraries\Auctionet;
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Full Name</label>
-                    <input type="text" class="form-control mb-3" placeholder="Full Name" value="Mr. Eugene Krabs" required>
+                    <input type="text" class="form-control mb-3" placeholder="Full Name" value="{{ $bidder->nama }}" disabled>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Email</label>
-                    <input type="email" class="form-control mb-3" placeholder="Email" value="eugenekrabs@krustykrab.com" required>
+                    <input type="email" class="form-control mb-3" placeholder="Email" value="{{ $bidder->email }}" disabled>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Password">
+                    <input type="password" class="form-control mb-3" placeholder="Password" name="password">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Confirm Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Confirm Password">
+                    <input type="password" class="form-control mb-3" placeholder="Confirm Password" name="password_confirmation">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Phone Number</label>
-                    <input type="text" class="form-control mb-3" placeholder="Phone Number" required value="hello im underwater">
+                    <input type="text" class="form-control mb-3" placeholder="Phone Number" required name="no_telepon" value="{{ $bidder->no_telepon }}">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Address</label>
-                    <input type="text" class="form-control mb-3" placeholder="Address" required value="Bikini Bottom Anchor">
+                    <textarea class="form-control mb-3" placeholder="Address" required name="alamat" rows="5">{{ $bidder->alamat }}</textarea>
                 </div>
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-save btn-primary w-100 fw-bold">Save</button>
                 </div>
-               
             </div>            
         </div>
     </form>
-	
-</body>
+@endsection
 
 @push('styles')
 <style>

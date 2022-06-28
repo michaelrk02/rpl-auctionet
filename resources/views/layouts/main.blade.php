@@ -24,9 +24,65 @@
     <title>@yield('title') | AUCTIONET</title>
 
     @stack('styles')
+
+    <script>
+    @if ($errors->any())
+    $(document).ready(function() {
+        (new bootstrap.Modal(document.getElementById('errors-modal'))).show();
+    });
+    @endif
+    @if (!empty(session('success')))
+    $(document).ready(function() {
+        (new bootstrap.Modal(document.getElementById('success-modal'))).show();
+    });
+    @endif
+    </script>
+
     @stack('scripts')
   </head>
   <body>
+    @if (!empty(session('success')))
+        <div class="modal fade" id="success-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Success</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="modal fade" id="errors-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                            <div class="py-2">{{ $error }}</div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     @yield('body')
   </body>
 </html>

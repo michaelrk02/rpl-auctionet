@@ -83,22 +83,23 @@ use App\Libraries\Auctionet;
     <div class="modal-dialog" style="width: 350px">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Product title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{ $produk->nama }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="">
+        <form method="post" action="{{ route('bidder.produk.tawar', ['produk' => $produk->id]) }}">
+            @csrf
             <div class="modal-body line">
-                <p class="text-dark"> <strong>Start Bid: </strong>
-                    <span class="start-bid">Rp.XXX.XXX,00</span></p>
-                <p class="text-dark"> <strong>Multiple Bid: </strong>
-                    <span class="multiple-bid">Rp.XXX.XXX,00</span></p>
-                <p class="text-dark"> <strong>Buy Now: </strong>
-                    <span class="buy-now">Rp.XXX.XXX,00</span></p>
-                <p class="text-dark"> <strong>Close Bid: </strong>
-                    <span class="close-bid">00:00:00</span></p>
+                <div class="text-dark"> <strong>Start Bid: </strong>
+                    <span class="start-bid">{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></div>
+                <div class="text-dark"> <strong>Multiple Bid: </strong>
+                    <span class="multiple-bid">{{ Auctionet::rupiah($produk->lelang_kelipatan) }}</span></div>
+                <div class="text-dark"> <strong>Buy Now: </strong>
+                    <span class="buy-now">{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></div>
+                <div class="text-dark"> <strong>Close Bid: </strong>
+                    <span class="close-bid">{{ $produk->lelangWaktuSelesai() }}</span></div>
                 <div class="form-group text-left">
                     <label for="make-bid" class="make-bid mt-3"><strong>Make A Bid</strong></label>
-                    <input type="text" class="form-control mt-2" id="bid" name="bid">
+                    <input type="text" class="form-control mt-2" id="bid" name="harga">
                 </div>    
             </div>
             <div class="modal-footer">
@@ -159,7 +160,7 @@ use App\Libraries\Auctionet;
     }
     .modal-content{
         background-color:#dadadafa;
-        line-height: 8px;
+        /* line-height: 8px; */
     }
     .modal-header{
         border-bottom: 2px solid #a8a8a8b7;

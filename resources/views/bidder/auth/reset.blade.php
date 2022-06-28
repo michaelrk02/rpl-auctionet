@@ -7,9 +7,7 @@ use App\Libraries\Auctionet;
 @section('title', 'Reset Bidder')
 
 @section('content')
-
-<body>
-    <form>
+    <form method="post" action="{{ $resetUrl }}">
         @csrf
         <div class="container">
             <div class="row">
@@ -18,11 +16,11 @@ use App\Libraries\Auctionet;
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">New Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="New Password" required>
+                    <input type="password" class="form-control mb-3" placeholder="New Password" required name="password">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Confirm New Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Confirm New Password" required>
+                    <input type="password" class="form-control mb-3" placeholder="Confirm New Password" required name="password_confirmation">
                 </div>
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-reset btn-primary w-100 fw-bold" >Save New Password</button>
@@ -30,10 +28,9 @@ use App\Libraries\Auctionet;
             </div>            
         </div>
     </form>
-	
-</body>
+@endsection
 
-    @push('styles')
+@push('styles')
 <style>
 .container{
     margin-top: 130px;

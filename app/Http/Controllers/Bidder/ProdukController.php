@@ -23,4 +23,20 @@ class ProdukController extends Controller
     {
         return view('bidder.produk.lihat', ['produk' => $produk]);
     }
+
+    public function tawar(Request $request, Produk $produk)
+    {
+        $input = $request->validate([
+            'harga' => 'required|integer'
+        ]);
+
+        if (!$produk->bisaMenawar($input['harga'])) {
+            return back()->withErrors(['error' => 'Unable to bid this product. Make sure you\'ve entered the correct bid amount and the auction hasn\'t been ended yet']);
+        }
+
+        $produk->listTawaran()->detach($this->bidder()->id);
+        $produk->listTawaran()->attach($this->bidder()->id, ['waktu' => date('Y-m-d H:i:s'), 'harga' => $input['harga']]);
+
+        return back()->with('success', 'Successfully made a new bid for this product');
+    }
 }

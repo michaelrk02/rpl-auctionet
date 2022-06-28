@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'auctioneer',
         'passwords' => 'users',
     ],
 
@@ -36,10 +36,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'bidder' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'bidder'
         ],
+        'auctioneer' => [
+            'driver' => 'session',
+            'provider' => 'auctioneer'
+        ]
     ],
 
     /*
@@ -60,15 +64,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'bidder' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Bidder::class
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'auctioneer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Auctioneer::class
+        ]
     ],
 
     /*

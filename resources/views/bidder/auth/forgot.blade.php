@@ -7,9 +7,7 @@ use App\Libraries\Auctionet;
 @section('title', 'Login Bidder')
 
 @section('content')
-
-<body>
-    <form action="{{ route('bidder.auth.reset') }}">
+    <form method="post" action="{{ route('bidder.auth.forgot') }}">
         @csrf
         <div class="container">
             <div class="row">
@@ -19,7 +17,7 @@ use App\Libraries\Auctionet;
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Forgot Password</label>
                     <p class="text-light">Enter the email whose password you want to reset for verification.</p>
-                    <input type="email" class="form-control mb-3" placeholder="Email" required>
+                    <input type="email" class="form-control mb-3" placeholder="Email" required name="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-forgot btn-primary w-100 fw-bold">Reset Password</button>
@@ -27,10 +25,9 @@ use App\Libraries\Auctionet;
             </div>            
         </div>
     </form>
-	
-</body>
+@endsection
 
-    @push('styles')
+@push('styles')
 <style>
 .container{
     margin-top: 130px;
