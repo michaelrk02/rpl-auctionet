@@ -75,6 +75,9 @@
     }
     .user-dropdown{
         background-color:#00000094;
+        border: solid 1px;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+
     }
     .dropdown-item:hover{
         background-color:#49494980;
