@@ -17,8 +17,8 @@
         </div>
         {{-- <div class="col-3">
             <div class="nav-item dropdown" style="margin-left: 180px">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person"></i><span style="margin-left: 5px"></span> Name
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person" style="font-weight: bold"></i><span style="margin-left: 5px"></span> Name
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
