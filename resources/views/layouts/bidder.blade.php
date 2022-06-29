@@ -13,8 +13,20 @@
         </ul>
         <div class="col-md-3 text-end">
             <a href="{{ route('bidder.auth.login') }}"><button type="button" class="btn btn-primary fw-bold">Login</button></a>
-            <a href="{{ route('bidder.auth.register') }}"><button type="button" class="btn btn-outline-primary me-2 fw-bold text-light">Register</button></a>
+            <a href="{{ route('bidder.auth.register') }}"><button type="button" class="btn btn-outline-primary me-2 fw-bold text-light">Register</button></a>      
         </div>
+        {{-- <div class="col-3">
+            <div class="nav-item dropdown" style="margin-left: 180px">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person"></i><span style="margin-left: 5px"></span> Name
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
+                    <li><hr class="dropdown-divider bg-dark"></li>
+                    <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-left"></i><span style="margin-left: 10px"></span>Logout</a></li>
+                </ul>
+            </div>
+        </div> --}}
     </div>
 </nav>
 
@@ -61,6 +73,55 @@
     nav ul li:hover{
         opacity: 0.9;
     }
+    .user-dropdown{
+        background-color:#00000094;
+    }
+    .dropdown-item:hover{
+        background-color:#49494980;
+    }
+    .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+  @keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
     footer{
         background-color:#00000080;
         position:sticky;
@@ -72,7 +133,6 @@
         box-shadow:
         3px 3px 3px rgba(0, 0, 0, 0.5),
         3px -3px 3px rgba(0, 0, 0, 0.5);
-
     }
 </style>
 @endpush
