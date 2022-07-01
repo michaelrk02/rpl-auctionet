@@ -32,7 +32,6 @@
 </nav>
 
 @yield('content')
-{{-- <div class="flex-grow-1"> --}}
   <footer class="d-flex flex-grow-1 flex-wrap justify-content-between align-items-center py-4" style="padding: 0 40px 0 40px">
     <p class="col-md-4 mb-0 text-secondary">&copy; Kelas B kelompok 7, Auctionet</p>
 
@@ -47,7 +46,6 @@
       <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">Contact Us</a></li>
     </ul>
   </footer>
-{{-- </div> --}}
 @endsection
 
 
