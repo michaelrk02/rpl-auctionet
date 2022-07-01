@@ -13,7 +13,6 @@ use App\Libraries\Auctionet;
 // - Input password
 // - Input konfirmasi password
 // - Tombol register --}}
-<body>
     <form action="">
         @csrf
         <div class="container">
@@ -44,8 +43,7 @@ use App\Libraries\Auctionet;
             </div>            
         </div>
     </form>
-	
-</body>
+@endsection	
 
 @push('styles')
 <style>

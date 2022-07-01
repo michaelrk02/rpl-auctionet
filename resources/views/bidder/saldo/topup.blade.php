@@ -30,7 +30,7 @@ use App\Libraries\Auctionet;
     <form action="">
             <div class="row mt-4">
                 <div class="topup-method">
-                    <label for="" class="text-light mb-2 fw-bold">Top Up Option</label>
+                    <label for="" class="text-light mb-2 fw-bold">Transfer Option</label>
                     <div class="method-option w-100">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">

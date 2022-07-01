@@ -39,7 +39,7 @@ use App\Libraries\Auctionet;
                 <div class="form-group col-md-6">
                     <label for="" class="text-light  fw-bold">Bank Type</label>
                     <select class="form-select" aria-label="Default select example">
-                        <option hidden selected disabled></option>
+                        {{-- <option hidden selected disabled style="color:gray">Bank Type</option> --}}
                         <option value="1">Bank One</option>
                         <option value="2">Bank Two</option>
                         <option value="3">Bank Three</option>
@@ -85,5 +85,6 @@ use App\Libraries\Auctionet;
 .btn-tarik:hover{
        font-size: 17px
     }
+
 </style>
 @endpush

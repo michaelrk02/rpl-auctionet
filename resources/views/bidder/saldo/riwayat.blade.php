@@ -4,7 +4,7 @@ use App\Libraries\Auctionet;
 
 @extends('layouts.bidder')
 
-@section('title', 'Balance Management')
+@section('title', 'Balance')
 
 @section('content')
 
@@ -16,7 +16,7 @@ use App\Libraries\Auctionet;
 // - Jenis
 // - Nominal
 // - Keterangan --}}
-<body>
+
         <div class="container">
                 <div class="title d-flex justify-content-center align-items-center mb-4">
                     <img src="/assets/img/auc-logo.png" alt="" style="height: 30px">
@@ -94,8 +94,7 @@ use App\Libraries\Auctionet;
                     </table>
                 </div>
             </div>
-	
-</body>
+@endsection		
 
 @push('styles')
 <style>

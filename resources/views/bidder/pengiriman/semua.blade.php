@@ -95,6 +95,7 @@ use App\Libraries\Auctionet;
             </div>
 	
 </body>
+@endsection	
 
 @push('styles')
 <style>

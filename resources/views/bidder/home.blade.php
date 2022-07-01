@@ -19,7 +19,7 @@
                                 {{-- <h5>Register & login now to be our bidder</h5> --}}
                                 <h4 class="mt-2">The best online-based auctions with trusted auctioneers!</h4>
                                 <p class="mt-3">Don't have an account yet? Click 
-                                    <a href="#" class="text-decoration-none fw-bold">here</a> 
+                                    <a href="{{ route('bidder.auth.register') }}" class="text-decoration-none fw-bold">here</a> 
                                     to register and be a part of us!</p>
                             </div>
                         </div>
@@ -66,13 +66,13 @@
         margin-bottom: 120px;
     }
     .banner{
-        width: 90%;
-        background-color: rgba(0, 0, 0, 0.5);
+        width: 95%;
+        /* background-color: rgba(0, 0, 0, 0.5); */
         height: 400px;
         border-radius: 15px;
         color: white;
-        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
-        border: solid rgba(97, 0, 0, 0.582);
+        /* box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+        border: solid rgba(97, 0, 0, 0.582); */
     }   
 </style>
 @endpush
