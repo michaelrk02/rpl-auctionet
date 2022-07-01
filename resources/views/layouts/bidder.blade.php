@@ -23,7 +23,7 @@
                 <ul class="dropdown-menu dropdown-menu-end animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
                     <li><a class="dropdown-item text-light" href="{{ route('bidder.pengiriman.semua') }}"><i class="bi bi-truck"></i></i><span style="margin-left: 10px"></span>Shipment</a></li>
-                    <li><hr class="dropdown-divider bg-dark"></li>
+                    <li><hr class="dropdown-divider" style="background-color: #41404080"></li>
                     <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-left"></i><span style="margin-left: 10px"></span>Logout</a></li>
                 </ul>
             </div>
@@ -76,17 +76,18 @@
     }
     .user-dropdown{
         background-color:#00000094;
-        border: solid 1px;
-        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+        border: solid 2px;
+        box-shadow: 0px 0px 2px 2px #00000080;
 
     }
     .dropdown-item{
       height: 45px;
       display: flex;
       align-items: center;
+      transition: 0.3s;
     }
     .dropdown-item:hover{
-        background-color:#49494980;
+        background-color:#79797934;
     }
     .animate {
     animation-duration: 0.3s;

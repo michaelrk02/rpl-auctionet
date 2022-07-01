@@ -22,11 +22,11 @@ use App\Libraries\Auctionet;
                     <p class="text-light markdown">{{ $produk->deskripsi }}</p>
                 </div>
                 <div class="product-info mt-3 pb-2">
-                    <p class="info-close text-light"><b>Close Bid: </b>
+                    <p class="info-close text-light"><b>Close Bid<span style="margin-left: 15px"></span>: </b>
                         <span>{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></p>
-                    <p class="info-start text-light"><b>Start Bid: </b>
+                    <p class="info-start text-light"><b>Start Bid<span style="margin-left: 19px"></span>: </b>
                         <span>{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></p>
-                    <p class="info-buy text-light"><b>Buy Now: </b>
+                    <p class="info-buy text-light"><b>Buy Now<span style="margin-left: 16px"></span>: </b>
                         <span>{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></p>
                 </div>
                 <div class="">
@@ -83,22 +83,22 @@ use App\Libraries\Auctionet;
     <div class="modal-dialog" style="width: 350px">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{ $produk->nama }}</h5>
+          <h5 class="modal-title text-light" id="exampleModalLabel">{{ $produk->nama }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form method="post" action="{{ route('bidder.produk.tawar', ['produk' => $produk->id]) }}">
             @csrf
             <div class="modal-body line">
-                <div class="text-dark"> <strong>Start Bid: </strong>
+                <div class="text-light"> <strong>Start Bid<span style="margin-left: 52px"></span>: </strong>
                     <span class="start-bid">{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></div>
-                <div class="text-dark"> <strong>Multiple Bid: </strong>
+                <div class="text-light"> <strong>Multiple Bid<span style="margin-left: 25px"></span>: </strong>
                     <span class="multiple-bid">{{ Auctionet::rupiah($produk->lelang_kelipatan) }}</span></div>
-                <div class="text-dark"> <strong>Buy Now: </strong>
+                <div class="text-light"> <strong>Buy Now <span style="margin-left: 45px"></span>: </strong>
                     <span class="buy-now">{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></div>
-                <div class="text-dark"> <strong>Close Bid: </strong>
+                <div class="text-light"> <strong>Close Bid<span style="margin-left: 49px"></span>: </strong>
                     <span class="close-bid">{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></div>
                 <div class="form-group text-left">
-                    <label for="make-bid" class="make-bid mt-3"><strong>Make A Bid</strong></label>
+                    <label for="make-bid" class="make-bid mt-3 text-light"><strong>Make A Bid</strong></label>
                     <input type="text" class="form-control mt-2" id="bid" name="harga">
                 </div>    
             </div>
@@ -159,14 +159,16 @@ use App\Libraries\Auctionet;
         font-weight: bold;
     }
     .modal-content{
-        background-color:#dadadafa;
-        /* line-height: 8px; */
+        background-color:#0f0f0fe5; 
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+        border: solid 1px;
+        line-height: 40px;
     }
     .modal-header{
-        border-bottom: 2px solid #a8a8a8b7;
+        border-bottom: 2px solid #41404080;
     }
     .modal-footer{
-        border-top: 2px solid #a8a8a8b7;
+        border-top: 2px solid #41404080;
     }
     .btn-bid{
         transition: .1s;
