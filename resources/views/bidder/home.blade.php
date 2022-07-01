@@ -35,7 +35,7 @@
                                     <button type="button" class="btn btn-primary fw-bold click-here" style="font-size: 30px">Click Here</button>
                                 </a>
                                 <h5 class="mt-3 mb-3">
-                                    To see the items being auctioned.
+                                    To see the items being auctioned. 
                                 </h5>
                                 <p class="mt-3">Be ready to bid the existing items! Don't forget to
                                     <a href="{{ route('bidder.auth.register') }}" class="text-decoration-none fw-bold">login</a> 
