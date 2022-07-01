@@ -25,24 +25,21 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="slide-banner text-center d-flex justify-content-center">
-                            <div class="text-banner w-50">
-                                <h1>Why Auctionet?</h1>
-                                <h5 class="mt-3">
-                                    We are not like the online auctions that are out there. <br>
-                                    Auctioneers are <span class="fw-bold text-primary">not responsible</span>. <br>
-                                    Auction winners often <span class="fw-bold text-primary">Bid n Run</span>.
+                        <div class="slide-banner d-flex justify-content-center">
+                            <div class="text-banner w-50 text-center">
+                                <h1 class="mt-4" style="font-size: 65px">Join <span class="fw-bold text-primary">Us</span> Now!</h1>
+                                {{-- <h4 class="mt-3 mb-3">
+                                   To start bidding and get the best auction experience!
+                                </h4> --}}
+                                <a href="{{ route('bidder.produk.semua') }}">
+                                    <button type="button" class="btn btn-primary fw-bold click-here" style="font-size: 30px">Click Here</button>
+                                </a>
+                                <h5 class="mt-3 mb-3">
+                                    To see the items being auctioned.
                                 </h5>
-                                <h4 class="mt-3">
-                                    We don't do that here!
-                                </h4>
-                                <h4 class="mt-3">
-                                    We have our trusted and qualified auctioneers. <br>
-                                    No balance no bidding for bidders.
-                                </h4>
-                                    
-                                <h6 class="mt-3">With our system, there will be no cheating from both auctioneers and bidders!</h6>
-                                
+                                <p class="mt-3">Be ready to bid the existing items! Don't forget to
+                                    <a href="{{ route('bidder.auth.register') }}" class="text-decoration-none fw-bold">login</a> 
+                                    first.</p>
                             </div>
                         </div>
                     </div> 
@@ -73,6 +70,7 @@
         color: white;
         /* box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
         border: solid rgba(97, 0, 0, 0.582); */
-    }   
+    }
+
 </style>
 @endpush
