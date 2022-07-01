@@ -11,22 +11,23 @@
             <li class="nav-item"><a href="{{ route('bidder.produk.semua') }}" class="nav-link px-2 fw-bold link-light">Products</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 fw-bold link-light">About</a></li>
         </ul>
-        <div class="col-md-3 text-end">
+        {{-- <div class="col-md-3 text-end">
             <a href="{{ route('bidder.auth.login') }}"><button type="button" class="btn btn-primary fw-bold">Login</button></a>
             <a href="{{ route('bidder.auth.register') }}"><button type="button" class="btn btn-outline-primary me-2 fw-bold text-light">Register</button></a>      
-        </div>
-        {{-- <div class="col-3">
+        </div> --}}
+        <div class="col-3">
             <div class="nav-item dropdown" style="margin-left: 180px">
                 <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person" style="font-weight: bold"></i><span style="margin-left: 5px"></span> Name
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
+                    <li><a class="dropdown-item text-light" href="{{ route('bidder.pengiriman.semua') }}"><i class="bi bi-truck"></i></i><span style="margin-left: 10px"></span>Shipment</a></li>
                     <li><hr class="dropdown-divider bg-dark"></li>
                     <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-left"></i><span style="margin-left: 10px"></span>Logout</a></li>
                 </ul>
             </div>
-        </div> --}}
+        </div>
     </div>
 </nav>
 
@@ -78,6 +79,11 @@
         border: solid 1px;
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
 
+    }
+    .dropdown-item{
+      height: 45px;
+      display: flex;
+      align-items: center;
     }
     .dropdown-item:hover{
         background-color:#49494980;

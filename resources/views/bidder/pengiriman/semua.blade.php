@@ -9,13 +9,12 @@ use App\Libraries\Auctionet;
 @section('content')
 
 {{-- 
-// Tampilkan nominal saldo saat ini
-// Button top up & tarik
-// Tampilkan tabel yg berisi kolom:
-// - Waktu
-// - Jenis
-// - Nominal
-// - Keterangan --}}
+// Tampilkan tabel yang berisi:
+    // - Waktu
+    // - Produk yg dikirim (sertakan link ke route detail produknya)
+    // - Layanan
+    // - No. Resi
+    // - Alamat --}}
 <body>
         <div class="container">
                 <div class="title d-flex justify-content-center align-items-center mb-4">
@@ -27,19 +26,19 @@ use App\Libraries\Auctionet;
                         <h5 class="text-light mb-2 fw-bold">Your Current Balance</h5>
                         <h4 class="text-light mb-2" style="font-size: 42px">IDR. 500.000</h4>
                     </div>
-                    <div class="main-2 d-flex justify-content-center align-items-end "
+                    <div class="main-2 d-flex justify-content-around align-items-end"
                     style="width: 160px; height:100px; ">
                         <div class="topup text-center">
-                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.topup') }}';" class="btn btn-topup btn-primary fw-bold" style="height: 42px; width:42px">
-                                <i class="bi bi-plus-lg topup-icon" style="font-size: 14px;"></i>
+                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.topup') }}';" class="btn btn-topup btn-primary fw-bold" style="height: 42px;">
+                                <i class="bi bi-plus-lg topup-icon" style="font-size: 20px;"></i>
                             </button>
-                            <p class="text-light" style="font-size: 13px;">Top Up</p>
+                            <p class="text-light">Top Up</p>
                         </div>
-                        <div class="tarik text-center" style="margin-left: 10px">
-                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.tarik') }}';" class="btn btn-tarik btn-primary fw-bold" style="height: 42px; width:42px">
-                                <i class="bi bi-arrow-down-up" style="font-size: 14px;"></i>
+                        <div class="tarik text-center">
+                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.tarik') }}';" class="btn btn-tarik btn-primary fw-bold" style="height: 42px">
+                                <i class="bi bi-arrow-down-up" style="font-size: 20px;"></i>
                             </button>
-                            <p class="text-light" style="font-size: 13px;">Withdraw</p>
+                            <p class="text-light">Withdraw</p>
                         </div>
                     </div>  
                 </div>
