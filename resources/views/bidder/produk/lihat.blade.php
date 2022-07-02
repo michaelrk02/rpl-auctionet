@@ -150,7 +150,7 @@ use App\Libraries\Auctionet;
         height: 100px;
         width: 100%;
         line-height: 8px;
-
+ 
     }
     .btn-make-bid{
         font-size: 20px;
