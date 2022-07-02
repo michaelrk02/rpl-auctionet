@@ -160,18 +160,6 @@ use App\Libraries\Auctionet;
         /* transform: scale(1.03); */
         font-weight: bold;
     }
-    .modal-content{
-        background-color:#0f0f0fe5; 
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-        border: solid 1px;
-        line-height: 40px;
-    }
-    .modal-header{
-        border-bottom: 2px solid #41404080;
-    }
-    .modal-footer{
-        border-top: 2px solid #41404080;
-    }
     .btn-bid{
         transition: .1s;
     }

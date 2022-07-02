@@ -87,7 +87,6 @@
   </body>
 </html>
 
-@push('styles')
 <style>
 
     .modal-content{
@@ -103,5 +102,4 @@
         border-top: 2px solid #41404080;
     }
 </style>
-@endpush
 
