@@ -22,6 +22,8 @@ use App\Libraries\Auctionet;
                     <p class="text-light markdown">{{ $produk->deskripsi }}</p>
                 </div>
                 <div class="product-info mt-3 pb-2">
+                    <p class="info-close text-light"><b>Open Bid<span style="margin-left: 15px"></span>: </b>
+                        <span>Maghrib</span></p>
                     <p class="info-close text-light"><b>Close Bid<span style="margin-left: 15px"></span>: </b>
                         <span>{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></p>
                     <p class="info-start text-light"><b>Start Bid<span style="margin-left: 19px"></span>: </b>
@@ -145,7 +147,7 @@ use App\Libraries\Auctionet;
     }
     .product-info{
         border-bottom: 2px solid rgba(255, 255, 255, 0.24);
-        height: 80px;
+        height: 100px;
         width: 100%;
         line-height: 8px;
 
