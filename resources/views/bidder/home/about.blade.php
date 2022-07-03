@@ -3,45 +3,66 @@
 @section('title', 'About')
 
 @section('content')
-<div class="home-banner d-flex justify-content-center">
+<div class="about-banner d-flex justify-content-center">
     <div id="carouselExampleIndicators" class="carousel slide banner py-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
             <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="slide-banner text-center d-flex justify-content-center">
-                            <div class="text-banner w-75">
-                                <h1 class="mb-3">Welcome to</h1>
-                                <img src="/assets/img/auc-logo.png" alt="" style="width: 300px">
-
-                                {{-- <h5>Register & login now to be our bidder</h5> --}}
-                                <h4 class="mt-2">The best online-based auctions with trusted auctioneers!</h4>
-                                <p class="mt-3">Don't have an account yet? Click 
-                                    <a href="{{ route('bidder.auth.register') }}" class="text-decoration-none fw-bold">here</a> 
-                                    to register and be a part of us!</p>
+                        <section class="about">
+                            <div class="main">
+                                <img src="/assets/img/auc-wbg4.png">
+                                <div class="about-text">
+                                    <h1>About Us</h1>
+                                    <h5>History<span class="text-primary"> & Description</span></h5>
+                                    <p style="font-size: 22px">
+                                        Established in 2022, Auctionet is an online based auctioneer operating in Indonesia. 
+                                        Auctionet brings you the best auction experience today. 
+                                        Find the products and items you are looking for
+                                        and be the winner to get them!
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                     <div class="carousel-item">
-                        <div class="slide-banner d-flex justify-content-center">
-                            <div class="text-banner w-50 text-center">
-                                <h1 class="mt-4" style="font-size: 65px">Join <span class="fw-bold text-primary">Us</span> Now!</h1>
-                                {{-- <h4 class="mt-3 mb-3">
-                                   To start bidding and get the best auction experience!
-                                </h4> --}}
-                                <a href="{{ route('bidder.produk.semua') }}">
-                                    <button type="button" class="btn btn-primary fw-bold click-here" style="font-size: 30px">Click Here</button>
-                                </a>
-                                <h5 class="mt-3 mb-3">
-                                    To see the items being auctioned. 
-                                </h5>
-                                <p class="mt-3">Be ready to bid the existing items! Don't forget to
-                                    <a href="{{ route('bidder.auth.register') }}" class="text-decoration-none fw-bold">login</a> 
-                                    first.</p>
+                        <section class="about">
+                            <div class="main">
+                                <img src="/assets/img/why2.jpg">
+                                <div class="about-text">
+                                    <h1>Why Auctionet?</h1>
+                                    <h5>Very<span class="text-primary"> Guaranteed</span></h5>
+                                    <p style="font-size: 22px">
+                                        With our system, there will be no auctioneer who is not responsible for 
+                                        not shipping their auction item. Also, no bidder will be able to 
+                                        'Bid n Run'. Here, not having enough balance is the same as not being able to bid.
+                                        So, we will make sure your balance is filled first before you can bid!
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </section>
+                    </div> 
+                    <div class="carousel-item">
+                        <section class="about">
+                            <div class="main">
+                                <img src="/assets/img/contact3.jpg">
+                                <div class="about-text">
+                                    <h1>Contact Us</h1>
+                                    <h5>To Be An<span class="text-primary"> Auctioneer</span></h5>
+                                    <p style="font-size: 22px">
+                                        We are very selective about our auctioneers. We will guarantee 
+                                        all the convenience of both the auctioneer and bidder. 
+                                        If you would like to be our auctioneer, feel free to contact 
+                                        us at (+62)85712345678.
+                                        <br><br>
+                                        Call only: 021-720469
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
                     </div> 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -58,9 +79,69 @@
 
 @push('styles')
 <style>
-  .slide{
-    margin-top: 130px;
-  }
+    .about-banner{
+        margin-top: 130px;
+    }
+    .banner{
+        width:100%;
+    }
+    .main{
+    /* width: 1600px; */
+    max-width: 90%;
+    margin: 0px auto;
+}
 
+.about{
+    width: 100%;
+    /* height: 400px; */
+    /* padding: 100px 0px 100px 0; */
+}
+
+.about img{
+    float: left;
+    /* margin-top: 40px; */
+    object-fit:cover;
+    margin-left: 130px;
+    height: 370px;
+    width: 370px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0.9;
+    color: #660000;
+
+}
+
+.about-text{
+    float: right;
+    margin-right: 100px;
+    /* margin-top: 50px; */
+    width: 600px;
+    opacity: 0.9;
+
+}
+
+
+.about-text h1{
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.about-text h5{
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: white;
+
+}
+
+.about-text  p{
+    letter-spacing: 1px;
+    line-height: 25px;
+    /* font-size: 20px; */
+    color: #ffffff;
+    text-align: justify;
+    text-indent: 30px;
+}
 </style>
 @endpush

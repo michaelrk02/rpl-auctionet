@@ -50,8 +50,8 @@ use Illuminate\Support\Facades\Auth;
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="{{ route('bidder.home') }}" class="nav-link px-2 text-secondary">Home</a></li>
       <li class="nav-item"><a href="{{ route('bidder.produk.semua') }}" class="nav-link px-2 text-secondary">Product</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">About</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">Contact Us</a></li>
+      <li class="nav-item"><a href="{{ route('bidder.home.about') }}" class="nav-link px-2 text-secondary">About</a></li>
+      <li class="nav-item"><a href="{{ route('bidder.home.about') }}" class="nav-link px-2 text-secondary">Contact Us</a></li>
     </ul>
   </footer>
 @endsection
