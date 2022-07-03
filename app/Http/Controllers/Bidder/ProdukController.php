@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bidder;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
 {
@@ -22,6 +23,11 @@ class ProdukController extends Controller
     public function lihat(Produk $produk)
     {
         return view('bidder.produk.lihat', ['produk' => $produk]);
+    }
+
+    public function lihatGambar(Produk $produk)
+    {
+        return response()->file(Storage::path($produk->gambar));
     }
 
     public function tawar(Request $request, Produk $produk)

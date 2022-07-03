@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'auctioneer',
+        'guard' => 'bidder',
         'passwords' => 'users',
     ],
 

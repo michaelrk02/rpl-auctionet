@@ -60,6 +60,7 @@ Route::prefix('bidder')->group(function () {
         Route::get('/semua', 'semua')->name('bidder.produk.semua');
 
         Route::get('/lihat/{produk}', 'lihat')->name('bidder.produk.lihat');
+        Route::get('/lihat/{produk}/gambar', 'lihatGambar')->name('bidder.produk.lihat.gambar');
 
         Route::post('/tawar/{produk}', 'tawar')->middleware('auth:bidder')->name('bidder.produk.tawar');
     });
@@ -98,7 +99,7 @@ Route::prefix('auctioneer')->group(function () {
         Route::get('/logout', 'logout')->middleware('auth:auctioneer')->name('auctioneer.auth.logout');
     });
 
-    Route::middleware('auth:admin')->group(function () {
+    Route::middleware('auth:auctioneer')->group(function () {
         Route::group([
             'prefix' => 'dashboard',
             'controller' => Auctioneer\DashboardController::class
@@ -117,7 +118,7 @@ Route::prefix('auctioneer')->group(function () {
 
             Route::get('/semua', 'semua')->name('auctioneer.produk.semua');
 
-            Route::get('/edit/{produk}', 'edit')->name('auctioneer.produk.lihat');
+            Route::get('/edit/{produk}', 'edit')->name('auctioneer.produk.edit');
             Route::post('/edit/{produk}', 'simpanEdit');
 
             Route::post('/hapus/{produk}', 'hapus')->name('auctioneer.produk.hapus');

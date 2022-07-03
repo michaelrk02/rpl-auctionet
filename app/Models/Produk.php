@@ -35,6 +35,10 @@ class Produk extends Model
         $waktuSelesai = $this->lelangWaktuSelesai();
         $tawaranTertinggi = $this->tawaranTertinggi();
 
+        if (time() < strtotime($this->lelang_waktu_mulai)) {
+            return false;
+        }
+
         if ($harga < $this->lelang_harga_buka) {
             return false;
         }
