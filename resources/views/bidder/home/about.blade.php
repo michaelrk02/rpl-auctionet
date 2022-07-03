@@ -13,7 +13,7 @@
             <div class="carousel-inner">
                     <div class="carousel-item active">
                         <section class="about">
-                            <div class="main">
+                            <div class="main"> 
                                 <img src="/assets/img/auc-wbg4.png">
                                 <div class="about-text">
                                     <h1>About Us</h1>
