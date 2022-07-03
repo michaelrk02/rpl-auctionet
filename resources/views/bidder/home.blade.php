@@ -37,22 +37,67 @@
                         </div>
                     </div>  --}}
 </div>
+    <div class="container d-flex justify-content-center" style="margin-top: 120px; margin-bottom: 150px">
+        <div class="list-statistic">
+            <div class="statistic d-flex justify-content-center align-items-center">
+                <div class="stat-1 text-center">
+                    <h5 class="text-light mb-2 fw-bold">Auctionet's Product(s) Sold</h5>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">15</span> item(s)</h4>
+                </div>
+            </div>
+            <div class="statistic d-flex justify-content-center align-items-center">
+                <div class="stat-1 text-center">
+                    <h5 class="text-light mb-2 fw-bold">Auctionet's Registered Bidder(s)</h5>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">190</span> user(s)</h4>
+                </div>
+            </div>   
+            <div class="statistic d-flex justify-content-center align-items-center">
+                <div class="stat-1 text-center">
+                    <h5 class="text-light mb-2 fw-bold">Number of Bid(s) Received</h5>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">290</span> bid(s)</h4>
+                </div>
+            </div>   
+        </div>
+    </div>
 @endsection
 
 @push('styles')
 <style>
     .home-banner{
-        margin-top: 200px;
-        margin-bottom: 300px;
+        margin-top: 160px;
+        margin-bottom: 50px;
     }
     .banner-2{
         width: 800px;
         background-color:#00000080;
         border-radius: 10px;
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-}
     }
-
+/* .container{
+    width: 70%;
+    height: 500px;
+    padding: 43px;
+    background-color:#00000080;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+} */
+.statistic{
+    margin-top: 30px;
+    width: 350px;
+    height: 150px;
+    background-color:#00000094;
+    border: solid 2px rgba(197, 197, 197, 0.623);
+    border-radius: 10px;
+    /* padding: 20px 30px 20px 30px; */
+}
+.list-statistic{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        /* background-color: white */
+    }
 
 </style>
 @endpush
