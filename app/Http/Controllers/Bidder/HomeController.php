@@ -12,4 +12,10 @@ class HomeController extends Controller
     {
         return view('bidder.home');
     }
+
+    // Tampilkan layar about
+    public function index()
+    {
+        return view('bidder.home.about');
+    }
 }

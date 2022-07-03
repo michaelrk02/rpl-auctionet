@@ -29,6 +29,7 @@ Route::prefix('bidder')->group(function () {
         'controller' => Bidder\HomeController::class
     ], function () {
         Route::get('/', 'index')->name('bidder.home');
+        Route::get('/about', 'about')->name('bidder.home.about');
     });
 
     Route::group([
