@@ -1,6 +1,6 @@
 @extends('layouts.bidder')
 
-@section('title', 'About')
+@section('title', 'Home')
 
 @section('content')
 <div class="home-banner d-flex justify-content-center">
@@ -58,9 +58,19 @@
 
 @push('styles')
 <style>
-  .slide{
-    margin-top: 130px;
-  }
+    .home-banner{
+        margin-top: 130px;
+        margin-bottom: 120px;
+    }
+    .banner{
+        width: 95%;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        height: 400px;
+        border-radius: 15px;
+        color: white;
+        /* box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+        border: solid rgba(97, 0, 0, 0.582); */
+    }
 
 </style>
 @endpush

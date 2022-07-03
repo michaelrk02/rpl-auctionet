@@ -10,10 +10,10 @@ use App\Libraries\Auctionet;
 
 <div class="list-product">
     @foreach ($daftarProduk as $produk)
-        <div class="card bg-transparent mb-5" style="width: 18rem;">
+        <div class="card bg-transparent mb-5" style="width: 20rem;">
             <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
             <div class="card-body text-body">
-                <h5 class="card-title mb-3 text-light">{{ $produk->nama }}</h5>
+                <h4 class="card-title mb-3 text-light">{{ $produk->nama }}</h4>
                 <p class="card-text mb-1 text-light"> <strong>Open Bid<span style="margin-left: 5.5px"></span>: </strong>
                     <span class="open-bid">{{ $produk->lelang_waktu_mulai }}</span></p> 
                 <p class="card-text mb-1 text-light"> <strong>Close Bid<span style="margin-left: 6px"></span>: </strong>

@@ -67,12 +67,12 @@
         margin-top: 160px;
         margin-bottom: 50px;
     }
-    .banner-2{
+    /* .banner-2{
         width: 800px;
         background-color:#00000080;
         border-radius: 10px;
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-    }
+    } */
 /* .container{
     width: 70%;
     height: 500px;
