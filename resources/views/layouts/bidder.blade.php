@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
         <ul class="nav col-12 col-md-auto mb-2 w-50 justify-content-around mb-md-0 ">
             <li class="nav-item"><a href="{{ route('bidder.home') }}" class="nav-link px-2 fw-bold link-light">Home</a></li>
             <li class="nav-item"><a href="{{ route('bidder.produk.semua') }}" class="nav-link px-2 fw-bold link-light">Products</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 fw-bold link-light">About</a></li>
+            <li class="nav-item"><a href="{{ route('bidder.home.about') }}" class="nav-link px-2 fw-bold link-light">About</a></li>
         </ul>
         @guest('bidder')
             <div class="col-md-3 text-end">

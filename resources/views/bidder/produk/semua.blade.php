@@ -14,9 +14,13 @@ use App\Libraries\Auctionet;
             <img class="card-img-top img-product" src="/assets/img/default-image.png" alt="">
             <div class="card-body text-body">
                 <h5 class="card-title mb-3 text-light">{{ $produk->nama }}</h5>
-                <p class="card-text mb-1 text-light"> <strong>Buy Now: </strong>
+                <p class="card-text mb-1 text-light"> <strong>Open Bid<span style="margin-left: 5.5px"></span>: </strong>
+                    <span class="open-bid">{{ $produk->lelang_waktu_mulai }}</span></p> 
+                <p class="card-text mb-1 text-light"> <strong>Close Bid<span style="margin-left: 6px"></span>: </strong>
+                    <span class="buy-now">{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></p> 
+                <p class="card-text mb-1 text-light"> <strong>Buy Now<span style="margin-left: 7px"></span>: </strong>
                     <span class="buy-now">{{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</span></p> 
-                <p class="card-text text-light"> <strong>Start Bid: </strong>
+                <p class="card-text text-light"> <strong>Start Bid<span style="margin-left: 10px"></span>: </strong>
                     <span class="start-bid">{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></p>
                 <div class="card-btn ">
                     <a href="{{ route('bidder.produk.lihat', ['produk' => $produk->id]) }}" class="btn btn-join-bid btn-primary text-light">Join Bidding!</a>

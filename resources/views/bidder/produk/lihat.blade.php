@@ -23,7 +23,7 @@ use App\Libraries\Auctionet;
                 </div>
                 <div class="product-info mt-3 pb-2">
                     <p class="info-close text-light"><b>Open Bid<span style="margin-left: 15px"></span>: </b>
-                        <span>Maghrib</span></p>
+                        <span>{{ $produk->lelang_waktu_mulai }}</span></p>
                     <p class="info-close text-light"><b>Close Bid<span style="margin-left: 15px"></span>: </b>
                         <span>{{ $produk->lelangWaktuSelesai() ?? '-' }}</span></p>
                     <p class="info-start text-light"><b>Start Bid<span style="margin-left: 19px"></span>: </b>
