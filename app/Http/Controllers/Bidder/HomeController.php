@@ -14,7 +14,7 @@ class HomeController extends Controller
     }
 
     // Tampilkan layar about
-    public function index()
+    public function about()
     {
         return view('bidder.home.about');
     }
