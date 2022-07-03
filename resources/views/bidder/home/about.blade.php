@@ -13,7 +13,7 @@
             <div class="carousel-inner">
                     <div class="carousel-item active">
                         <section class="about">
-                            <div class="main"> 
+                            <div class="main d-flex justify-content-between align-items-center w-75"> 
                                 <img src="/assets/img/auc-wbg4.png">
                                 <div class="about-text">
                                     <h1>About Us</h1>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="carousel-item">
                         <section class="about">
-                            <div class="main">
+                            <div class="main d-flex justify-content-between align-items-center w-75"> 
                                 <img src="/assets/img/why2.jpg">
                                 <div class="about-text">
                                     <h1>Why Auctionet?</h1>
@@ -47,7 +47,7 @@
                     </div> 
                     <div class="carousel-item">
                         <section class="about">
-                            <div class="main">
+                            <div class="main d-flex justify-content-between align-items-center w-75"> 
                                 <img src="/assets/img/contact3.jpg">
                                 <div class="about-text">
                                     <h1>Contact Us</h1>
@@ -91,17 +91,17 @@
     margin: 0px auto;
 }
 
-.about{
+/* .about{
     width: 100%;
-    /* height: 400px; */
-    /* padding: 100px 0px 100px 0; */
-}
+    height: 400px;
+    padding: 100px 0px 100px 0;
+} */
 
 .about img{
     float: left;
     /* margin-top: 40px; */
     object-fit:cover;
-    margin-left: 130px;
+    /* margin-left: 100px; */
     height: 370px;
     width: 370px;
     position: relative;
@@ -114,9 +114,9 @@
 
 .about-text{
     float: right;
-    margin-right: 100px;
+    /* margin-right: 70px; */
     /* margin-top: 50px; */
-    width: 600px;
+    width: 550px;
     opacity: 0.9;
 
 }
