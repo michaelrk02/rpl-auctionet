@@ -61,7 +61,8 @@ use App\Libraries\Auctionet;
                                 <td class="font-monospace">{{ $riwayat->jenis }}</td>
                                 <td class="font-monospace">{{ Auctionet::rupiah($riwayat->nominal) }}</td>
                                 <td class="font-monospace">{{ $riwayat->keterangan }}</td>
-                                <td>@if ($riwayat->jenis === 'req:topup') <a class="btn btn-primary"><i class="bi bi-telephone"></i></a> @endif</td>
+                                <td>@if ($riwayat->jenis === 'req:topup') <a href="https://web.whatsapp.com/send?phone={{ env('AUCTIONET_TRANSFER_CONFIRM') }}" 
+                                    class="btn btn-primary"><i class="bi bi-whatsapp"></i></a> @endif</td>
                             </tr>
                             @endforeach
                         </tbody>
