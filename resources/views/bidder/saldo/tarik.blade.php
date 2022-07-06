@@ -27,31 +27,32 @@ use App\Libraries\Auctionet;
     <div class="balance-main d-flex justify-content-between align-items-center mb-2">
         <div class="main-1" style="width: 250px">
             <h5 class="text-light mb-2 fw-bold">Your Current Balance</h5>
-            <h4 class="text-light mb-2" style="font-size: 42px">IDR. 500.000</h4>
+            <h4 class="text-light mb-2" style="font-size: 42px">{{ Auctionet::rupiah($saldo->nominal) }}</h4>
         </div>
     </div>
-    <form action="">
+    <form method="post" action="{{ route('bidder.saldo.tarik') }}" onsubmit="return confirm('Are you sure?')">
+            @csrf
             <div class="row mt-4">
                 <div class="form-group col-md-6">
                     <label for="" class="text-light  fw-bold">Withdrawal Amount</label>
-                    <input type="text" class="form-control mb-3" placeholder="Withdrawal Amount" required>
+                    <input type="text" class="form-control mb-3" placeholder="Withdrawal Amount" required name="nominal" value="{{ old('nominal') }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light  fw-bold">Bank Type</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="bank">
                         {{-- <option hidden selected disabled style="color:gray">Bank Type</option> --}}
-                        <option value="1">Bank One</option>
-                        <option value="2">Bank Two</option>
-                        <option value="3">Bank Three</option>
-                      </select>
+                        @foreach ($banks as $bank)
+                        <option value="{{ $bank }}" @if (old('bank') === $bank) selected @endif>{{ $bank }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light  fw-bold">Account Number</label>
-                    <input type="text" class="form-control mb-3" placeholder="Account Number" required>
+                    <input type="text" class="form-control mb-3" placeholder="Account Number" required name="no_rekening" value="{{ old('no_rekening') }}">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light  fw-bold">Account Name</label>
-                    <input type="text" class="form-control mb-3" placeholder="Account Name" required>
+                    <input type="text" class="form-control mb-3" placeholder="Account Name" required name="nama_rekening" value="{{ old('nama_rekening') }}">
                 </div>
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-tarik btn-primary w-100 fw-bold" >Withdraw</button>

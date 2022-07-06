@@ -29,6 +29,16 @@ class Bidder extends Model implements
         ]);
     }
 
+    public function dataSaldo()
+    {
+        return $this->hasOne(Saldo::class, 'bidder', 'id');
+    }
+
+    public function listPengiriman()
+    {
+        return $this->hasMany(Pengiriman::class, 'penerima', 'id');
+    }
+
     public static function fromEmail($email)
     {
         return Bidder::where('email', $email)->first();

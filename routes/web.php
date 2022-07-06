@@ -113,6 +113,7 @@ Route::prefix('auctioneer')->group(function () {
             'controller' => Auctioneer\ProdukController::class
         ], function () {
             Route::get('/tawaran/{produk}', 'tawaran')->name('auctioneer.produk.tawaran');
+            Route::post('/finalisasi/{produk}', 'finalisasi')->name('auctioneer.produk.finalisasi');
 
             Route::get('/tambah', 'tambah')->name('auctioneer.produk.tambah');
             Route::post('/tambah', 'simpanTambah');
@@ -131,8 +132,8 @@ Route::prefix('auctioneer')->group(function () {
         ], function () {
             Route::get('/semua', 'semua')->name('auctioneer.pengiriman.semua');
 
-            Route::get('/kirim/{produk}', 'kirim')->name('auctioneer.pengiriman.kirim');
-            Route::post('/kirim/{produk}', 'simpan');
+            Route::get('/kirim', 'kirim')->name('auctioneer.pengiriman.kirim');
+            Route::post('/kirim', 'simpan');
         });
 
         Route::group([
@@ -140,8 +141,6 @@ Route::prefix('auctioneer')->group(function () {
             'controller' => Auctioneer\SaldoController::class
         ], function () {
             Route::get('/semua', 'semua')->name('auctioneer.saldo.semua');
-
-            Route::get('/lihat/{pengajuan}', 'lihat')->name('auctioneer.saldo.lihat');
 
             Route::post('/terima/{pengajuan}', 'terima')->name('auctioneer.saldo.terima');
             Route::post('/tolak/{pengajuan}', 'tolak')->name('auctioneer.saldo.tolak');

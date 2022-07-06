@@ -6,23 +6,23 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Bidder;
+use App\Models\Pengiriman;
 
-class PasswordResetLink extends Mailable
+class ProductShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = '[AUCTIONET] Password Reset Link';
-    protected $bidder;
+    public $subject = '[AUCTIONET] Product Shipped';
+    protected $pengiriman;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Bidder $bidder)
+    public function __construct(Pengiriman $pengiriman)
     {
-        $this->bidder = $bidder;
+        $this->pengiriman = $pengiriman;
     }
 
     /**
@@ -32,6 +32,6 @@ class PasswordResetLink extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.bidder.password_reset_link', ['bidder' => $this->bidder]);
+        return $this->markdown('mails.bidder.product_shipped', ['pengiriman' => $this->pengiriman]);
     }
 }

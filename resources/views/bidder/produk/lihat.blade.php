@@ -1,21 +1,22 @@
 @php
 use App\Libraries\Auctionet;
+use Illuminate\Support\Facades\Auth;
 @endphp
 
 @extends('layouts.bidder')
 
-@section('title', 'Products List')
+@section('title', 'Bidding List')
 
 @section('content')
 
 <div class="main d-flex justify-content-center">
     <div class="box d-flex flex-column justify-content-start align-items-around pb-2">
         <div class="box-1 d-flex justify-content-around align-items-start px-4 py-5">
-            <img src="/assets/img/default-image.png" alt="product-img"
+            <img src="@if ($produk->gambar !== null) {{ route('bidder.produk.lihat.gambar', ['produk' => $produk->id]) }} @else /assets/img/default-image.png @endif" alt="product-img"
             style="width:420px; height:420px; object-fit:cover; border-radius:15px">
             <div class="box-1-right d-flex flex-column justify-content-start align-items-start">
                 <div class="product-title">
-                    <h4 class="text-light">{{ $produk->nama }}</h4>
+                    <h4 class="text-light">{{ $produk->nama }} @if ($produk->dimenangkan_oleh !== null) <span class="badge bg-info">AUCTION ENDED</span> @endif</h4>
                 </div>
                 <div class="product-desc mt-1 pb-2">
                     <h5 class="text-light">Description</h5>
@@ -88,9 +89,11 @@ use App\Libraries\Auctionet;
           <h5 class="modal-title text-light" id="exampleModalLabel">{{ $produk->nama }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post" action="{{ route('bidder.produk.tawar', ['produk' => $produk->id]) }}">
+        <form method="post" action="{{ route('bidder.produk.tawar', ['produk' => $produk->id]) }}" onsubmit="return confirm('Are you sure? This cannot be undone')">
             @csrf
             <div class="modal-body line">
+                <div class="text-light"> <strong>Balance<span style="margin-left: 52px"></span>: </strong>
+                    <span class="balance">{{ Auctionet::rupiah(Auth::guard('bidder')->user()->dataSaldo->nominal) }}</span></div>
                 <div class="text-light"> <strong>Start Bid<span style="margin-left: 52px"></span>: </strong>
                     <span class="start-bid">{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</span></div>
                 <div class="text-light"> <strong>Multiple Bid<span style="margin-left: 25px"></span>: </strong>

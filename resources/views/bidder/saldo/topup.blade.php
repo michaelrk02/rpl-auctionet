@@ -27,41 +27,30 @@ use App\Libraries\Auctionet;
             <h4 class="text-light mb-2" style="font-size: 42px">IDR. 500.000</h4>
         </div>
     </div>
-    <form action="">
+    <form method="post" action="{{ route('bidder.saldo.topup') }}" onsubmit="return confirm('Are you sure?')">
+            @csrf
             <div class="row mt-4">
                 <div class="topup-method">
                     <label for="" class="text-light mb-2 fw-bold">Transfer Option</label>
-                    <div class="method-option w-100">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label text-light" for="inlineRadio1">Option 1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label text-light" for="inlineRadio1">Option 2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label text-light" for="inlineRadio1">Option 3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label text-light" for="inlineRadio1">Option 4</label>
-                        </div>
+                    @foreach ($methods as $i => $method)
+                    <div class="form-check py-1">
+                        <input class="form-check-input" type="radio" name="metode" id="method-{{ $i }}" value="{{ $method }}" @if (old('metode') == $method) checked @endif>
+                        <label class="form-check-label text-light" for="method-{{ $i }}">{{ $method }}</label>
                     </div>
+                    @endforeach
                 </div>
 
                 <div class="form-group col-md-12 mb-2 mt-2">
-                    <label for="" class="text-light  fw-bold">Top Up Amount</label>
+                    <label for="" class="text-light  fw-bold">Top Up Amount *)</label>
                 </div>
                 <div class="form-group col-md-9">
-                    <input type="text" class="form-control mb-3" placeholder="Top Up Amount" required>
+                    <input type="number" class="form-control mb-3" placeholder="Top Up Amount" name="nominal" required value="{{ old('nominal') }}">
                 </div>
                 <div class="form-group col-md-3">
                     <button type="submit" class="btn btn-topup btn-primary w-100 fw-bold" >Top Up</button>
                 </div>
-               
-            </div>            
+                <div class="form-group col-md-9 text-light">*) A unique code will be augmented to the transfer amount to distinguish from another transactions</div>
+            </div>
         </div>
     </form>
 	

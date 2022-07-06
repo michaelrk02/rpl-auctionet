@@ -18,6 +18,7 @@ CREATE TABLE `produk` (
     `lelang_kelipatan` INT,
     `dimenangkan_oleh` CHAR(36),
     `dimenangkan_saat` DATETIME,
+    `terkirim` TINYINT(1),
     PRIMARY KEY (`id`)
 );
 

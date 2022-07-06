@@ -4,7 +4,7 @@ use App\Libraries\Auctionet;
 
 @extends('layouts.bidder')
 
-@section('title', 'Balance')
+@section('title', 'Shipment')
 
 @section('content')
 
@@ -42,50 +42,15 @@ use App\Libraries\Auctionet;
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($listPengiriman as $pengiriman)
                             <tr>
-                                <td>05.00</td>
-                                <td><a href=""
-                                    class=" text-decoration-none fw-bold">Sendok Sup Abad 17</a></td>
-                                <td>REG</td>
-                                <td>JT-8734802832345</td>
-                                <td>Banjarsari, SOC</td>
-
+                                <td>{{ $pengiriman->waktu }}</td>
+                                <td><a href="{{ route('bidder.produk.lihat', ['produk' => $pengiriman->produk]) }}" class="text-decoration-none fw-bold">{{ $pengiriman->dataProduk->nama }}</a></td>
+                                <td>{{ $pengiriman->layanan }}</td>
+                                <td>{{ $pengiriman->no_resi }}</td>
+                                <td>{{ $pengiriman->alamat }}</td>
                             </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -97,7 +62,7 @@ use App\Libraries\Auctionet;
 .container{
     margin-top: 130px;
     padding: 43px;
-    width: 800px;
+    width: 1200px;
     background-color:#00000080;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);

@@ -43,6 +43,10 @@ class ProdukController extends Controller
         $produk->listTawaran()->detach($this->bidder()->id);
         $produk->listTawaran()->attach($this->bidder()->id, ['waktu' => date('Y-m-d H:i:s'), 'harga' => $input['harga']]);
 
+        if ($input['harga'] >= $produk->lelang_harga_tutup) {
+            $produk->menangkan();
+        }
+
         return back()->with('success', 'Successfully made a new bid for this product');
     }
 }

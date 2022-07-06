@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Auth;
                         <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
                         <li><a class="dropdown-item text-light" href="{{ route('bidder.pengiriman.semua') }}"><i class="bi bi-truck"></i></i><span style="margin-left: 10px"></span>Shipment</a></li>
                         <li><hr class="dropdown-divider" style="background-color: #41404080"></li>
-                        <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-left"></i><span style="margin-left: 10px"></span>Logout</a></li>
+                        <li><a class="dropdown-item text-light" href="{{ route('bidder.auth.logout') }}"><i class="bi bi-box-arrow-left"></i><span style="margin-left: 10px"></span>Logout</a></li>
                     </ul>
                 </div>
             </div>

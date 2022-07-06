@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Produk extends Model
 {
@@ -30,6 +31,33 @@ class Produk extends Model
         return $this->belongsToMany(Bidder::class, 'tawaran', 'produk', 'bidder', 'id', 'id')->withPivot(['harga', 'waktu'])->orderByPivot('harga', 'desc');
     }
 
+    public function selesai()
+    {
+        $waktuSelesai = $this->lelangWaktuSelesai();
+
+        return isset($waktuSelesai) && (time() > strtotime($waktuSelesai));
+    }
+
+    public function menangkan()
+    {
+        $pemenang = $this->listTawaran()->first();
+        $pemenang->dataSaldo->nominal -= $pemenang->pivot->harga;
+        $pemenang->dataSaldo->save();
+
+        $transaksi = new SaldoRiwayat();
+        $transaksi->id = (string)Str::uuid();
+        $transaksi->saldo = $pemenang->id;
+        $transaksi->waktu = date('Y-m-d H:i:s');
+        $transaksi->jenis = 'payment';
+        $transaksi->keterangan = 'WIN '.$this->nama;
+        $transaksi->nominal = $pemenang->pivot->harga;
+        $transaksi->save();
+
+        $this->dimenangkan_oleh = $pemenang->id;
+        $this->dimenangkan_saat = date('Y-m-d H:i:s');
+        $this->save();
+    }
+
     public function bisaMenawar($harga)
     {
         $waktuSelesai = $this->lelangWaktuSelesai();
@@ -51,10 +79,15 @@ class Produk extends Model
             return false;
         }
 
-        if (isset($waktuSelesai) && (time() > strtotime($waktuSelesai))) {
+        if ($this->selesai()) {
             return false;
         }
 
         return true;
+    }
+
+    public function dataPemenang()
+    {
+        return $this->hasOne(Bidder::class, 'id', 'dimenangkan_oleh');
     }
 }

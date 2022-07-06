@@ -15,6 +15,8 @@ class PengirimanController extends Controller
     // - Alamat
     public function semua()
     {
-        return view('bidder.pengiriman.semua');
+        $listPengiriman = $this->bidder()->listPengiriman()->orderBy('waktu', 'desc')->get();
+
+        return view('bidder.pengiriman.semua', compact('listPengiriman'));
     }
 }

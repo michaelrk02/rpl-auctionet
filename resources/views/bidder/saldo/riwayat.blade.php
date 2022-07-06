@@ -25,20 +25,20 @@ use App\Libraries\Auctionet;
                 <div class="balance-main d-flex justify-content-between align-items-center">
                     <div class="main-1" style="width: 250px">
                         <h5 class="text-light mb-2 fw-bold">Your Current Balance</h5>
-                        <h4 class="text-light mb-2" style="font-size: 42px">IDR. 500.000</h4>
+                        <h4 class="text-light mb-2" style="font-size: 42px">{{ Auctionet::rupiah($saldo->nominal) }}</h4>
                     </div>
                     <div class="main-2 d-flex justify-content-center align-items-end "
                     style="width: 160px; height:100px; ">
                         <div class="topup text-center">
-                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.topup') }}';" class="btn btn-topup btn-primary fw-bold" style="height: 42px; width:42px">
+                            <a href="{{ route('bidder.saldo.topup') }}" class="btn btn-topup btn-primary fw-bold" style="height: 42px; width:42px">
                                 <i class="bi bi-plus-lg topup-icon" style="font-size: 14px;"></i>
-                            </button>
+                            </a>
                             <p class="text-light" style="font-size: 13px;">Top Up</p>
                         </div>
                         <div class="tarik text-center" style="margin-left: 10px">
-                            <button type="submit" onclick="location.href='{{ route('bidder.saldo.tarik') }}';" class="btn btn-tarik btn-primary fw-bold" style="height: 42px; width:42px">
+                            <a href="{{ route('bidder.saldo.tarik') }}" class="btn btn-tarik btn-primary fw-bold" style="height: 42px; width:42px">
                                 <i class="bi bi-arrow-down-up" style="font-size: 14px;"></i>
-                            </button>
+                            </a>
                             <p class="text-light" style="font-size: 13px;">Withdraw</p>
                         </div>
                     </div>  
@@ -47,49 +47,23 @@ use App\Libraries\Auctionet;
                     <table class="table table-dark table-hover table-striped mb-0 text-center">
                         <thead class="">
                             <tr>
-                                <th scope="col">Time</th>
+                                <th scope="col">Timestamp</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Information</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Confirm</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($listRiwayat as $riwayat)
                             <tr>
-                                <td>-</td>
-                                <td>Withdrawal</td>
-                                <td>-</td>
-                                <td>Successful</td>
+                                <td>{{ $riwayat->waktu }}</td>
+                                <td class="font-monospace">{{ $riwayat->jenis }}</td>
+                                <td class="font-monospace">{{ Auctionet::rupiah($riwayat->nominal) }}</td>
+                                <td class="font-monospace">{{ $riwayat->keterangan }}</td>
+                                <td>@if ($riwayat->jenis === 'req:topup') <a class="btn btn-primary"><i class="bi bi-telephone"></i></a> @endif</td>
                             </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -101,7 +75,7 @@ use App\Libraries\Auctionet;
 .container{
     margin-top: 130px;
     padding: 43px;
-    width: 800px;
+    width: 1000px;
     background-color:#00000080;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);

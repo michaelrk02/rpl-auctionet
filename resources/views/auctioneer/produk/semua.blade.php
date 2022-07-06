@@ -15,7 +15,9 @@ use App\Libraries\Auctionet;
             <th>Name</th>
             <th>Open Bid</th>
             <th>Start Bid</th>
+            <th>Ended</th>
             <th>Sold</th>
+            <th>Dispatched</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -25,9 +27,11 @@ use App\Libraries\Auctionet;
                 <td>{{ $produk->nama }}</td>
                 <td>{{ $produk->lelang_waktu_mulai }}</td>
                 <td>{{ Auctionet::rupiah($produk->lelang_harga_buka) }}</td>
+                <td>@if ($produk->selesai()) <span class="bi bi-check-lg text-success"></span> @else <span class="bi bi-x-lg text-danger"></span> @endif</td>
                 <td>@if ($produk->dimenangkan_oleh !== null) <span class="bi bi-check-lg text-success"></span> @else <span class="bi bi-x-lg text-danger"></span> @endif</td>
+                <td>@if ($produk->terkirim) <span class="bi bi-check-lg text-success"></span> @else <span class="bi bi-x-lg text-danger"></span> @endif</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('auctioneer.produk.tawaran', ['produk' => $produk->id]) }}"><i class="bi bi-list-ol"></i></a>
+                    <a class="btn btn-primary" href="{{ route('auctioneer.produk.tawaran', ['produk' => $produk->id]) }}"><i class="bi bi-eye"></i></a>
                     <a class="btn btn-primary" href="{{ route('auctioneer.produk.edit', ['produk' => $produk->id]) }}"><i class="bi bi-pencil-square"></i></a>
                     <form class="m-0 d-inline" method="post" action="{{ route('auctioneer.produk.hapus', ['produk' => $produk->id]) }}" onsubmit="return confirm('Are you sure to delete this product?')">
                         @csrf

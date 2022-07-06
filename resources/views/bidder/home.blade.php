@@ -42,19 +42,19 @@
             <div class="statistic d-flex justify-content-center align-items-center">
                 <div class="stat-1 text-center">
                     <h5 class="text-light mb-2 fw-bold">Auctionet's Product(s) Sold</h5>
-                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">15</span> item(s)</h4>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">{{ $info['jml_produk_terjual'] }}</span> item(s)</h4>
                 </div>
             </div>
             <div class="statistic d-flex justify-content-center align-items-center">
                 <div class="stat-1 text-center">
                     <h5 class="text-light mb-2 fw-bold">Auctionet's Registered Bidder(s)</h5>
-                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">190</span> user(s)</h4>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">{{ $info['jml_bidder_terdaftar'] }}</span> user(s)</h4>
                 </div>
             </div>   
             <div class="statistic d-flex justify-content-center align-items-center">
                 <div class="stat-1 text-center">
                     <h5 class="text-light mb-2 fw-bold">Number of Bid(s) Received</h5>
-                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">290</span> bid(s)</h4>
+                    <h4 class="text-light mb-2" style="font-size: 42px"><span class="text-primary">{{ $info['jml_tawaran_masuk'] }}</span> bid(s)</h4>
                 </div>
             </div>   
         </div>

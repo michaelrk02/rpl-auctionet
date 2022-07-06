@@ -15,6 +15,17 @@ class ProdukController extends Controller
         return view('auctioneer.produk.tawaran', compact('produk'));
     }
 
+    public function finalisasi(Produk $produk)
+    {
+        if (!$produk->selesai()) {
+            return back()->withErrors(['error' => 'Auction has not ended yet']);
+        }
+
+        $produk->menangkan();
+
+        return back()->with('success', 'A winner has been set');
+    }
+
     public function tambah(Request $request)
     {
         $action = 'add';
