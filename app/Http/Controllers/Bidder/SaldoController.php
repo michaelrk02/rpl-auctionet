@@ -30,6 +30,8 @@ class SaldoController extends Controller
     // - tombol submit
     public function topup()
     {
+        $saldo = $this->bidder()->dataSaldo;
+
         $methods = env('AUCTIONET_TRANSFER_METHODS');
         $methods = explode(';', $methods);
         foreach ($methods as &$method)
@@ -38,7 +40,7 @@ class SaldoController extends Controller
             $method = implode(' - ', $method);
         }
 
-        return view('bidder.saldo.topup', compact('methods'));
+        return view('bidder.saldo.topup', compact('saldo','methods'));
     }
 
     public function requestTopup(Request $request)

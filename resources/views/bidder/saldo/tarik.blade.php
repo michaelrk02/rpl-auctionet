@@ -25,7 +25,7 @@ use App\Libraries\Auctionet;
         <img src="/assets/img/auc-logo.png" alt="" style="height: 30px">
     </div>
     <div class="balance-main d-flex justify-content-between align-items-center mb-2">
-        <div class="main-1" style="width: 250px">
+        <div class="main-1" style="width: 500px">
             <h5 class="text-light mb-2 fw-bold">Your Current Balance</h5>
             <h4 class="text-light mb-2" style="font-size: 42px">{{ Auctionet::rupiah($saldo->nominal) }}</h4>
         </div>
