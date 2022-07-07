@@ -13,7 +13,7 @@ use App\Libraries\Auctionet;
 // - Input password
 // - Input konfirmasi password
 // - Tombol register --}}
-    <form action="">
+    <form method="post" action="{{ route('bidder.auth.register') }}" onsubmit="return confirm('Are you sure?')">
         @csrf
         <div class="container">
             <div class="row">
@@ -22,19 +22,19 @@ use App\Libraries\Auctionet;
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Full Name</label>
-                    <input type="text" class="form-control mb-3" placeholder="Full Name" required>
+                    <input type="text" class="form-control mb-3" placeholder="Full Name" required name="nama">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="" class="text-light mb-2 fw-bold">Email</label>
-                    <input type="email" class="form-control mb-3" placeholder="Email" required>
+                    <input type="email" class="form-control mb-3" placeholder="Email" required name="email">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Password" required>
+                    <input type="password" class="form-control mb-3" placeholder="Password" required name="password">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="" class="text-light mb-2 fw-bold">Confirm Password</label>
-                    <input type="password" class="form-control mb-3" placeholder="Confirm Password" required>
+                    <input type="password" class="form-control mb-3" placeholder="Confirm Password" required name="password_confirmation">
                 </div>
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-register btn-primary w-100 fw-bold" >Register</button>
