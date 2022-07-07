@@ -22,12 +22,13 @@ use Illuminate\Support\Facades\Auth;
             </div>
         @endguest
         @auth('bidder')
-            <div class="col-auto bg-dark" style="width: 150px"></div>
+            <div class="col-1"></div>
+            <div class="" style="width: 150px"></div>
                 <div class="nav-item dropdown text-end" >
                     <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person" style="font-weight: bold"></i><span style="margin-left: 5px"></span> Profile
+                        <i class="bi bi-person-circle" style="font-weight: bold"></i><span style="margin-left: 5px"></span> 
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-center animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu  animate slideIn user-dropdown" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item text-light" href="{{ route('bidder.auth.profile') }}"><i class="bi bi-person-lines-fill"></i><span style="margin-left: 10px"></span>{{ Auth::guard('bidder')->user()->nama }}</a></li>
                         <li><hr class="dropdown-divider" style="background-color: #41404080"></li>
                         <li><a class="dropdown-item text-light" href="{{ route('bidder.saldo.riwayat') }}"><i class="bi bi-wallet2"></i><span style="margin-left: 10px"></span>Balance</a></li>
@@ -105,14 +106,17 @@ use Illuminate\Support\Facades\Auth;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
   }
-  .dropdown-menu-center { 
+  /* .dropdown-menu-center { 
     right: auto !important; 
     left: 50% !important; 
     top: 100% !important; 
     -webkit-transform: translate(-50%, 0) !important; 
     -o-transform: translate(-50%, 0) !important; 
     transform: translate(-50%, 0) !important; 
-    }
+    } */
+    .dropdown {text-align:center;}
+     /* .dropdown-menu {margin:10px auto} */
+    .dropdown-menu { left:50%; margin-left:-60px;}
   @keyframes slideIn {
   0% {
     transform: translateY(1rem);
