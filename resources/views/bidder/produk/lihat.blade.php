@@ -39,13 +39,17 @@ use Illuminate\Support\Facades\Auth;
                         <p class="col-2"><strong>Buy Now</strong></p> 
                         <p class="open-bid col-10 "><span class="fw-bold">: </span> {{ $produk->lelang_harga_tutup == 0 ? '-' : Auctionet::rupiah($produk->lelang_harga_tutup) }}</p>
                     </div>
-                    <div style="margin-bottom: 30px;"></div>  
                 </div>
                 <div class="button-text">
                     @auth('bidder')
                     <a href="#" class="btn btn-make-bid btn-primary text-light mt-3"
                     data-bs-toggle="modal" data-bs-target="#detailsModal">Make A Bid!</a>
                     @endauth
+                    @guest('bidder')
+                    <a class="text-decoration-none mt-3" href="{{ route('bidder.auth.login') }}">
+                        <h6 class="mt-3">Login first to be able to make a bid!</h6>
+                    </a>
+                    @endguest
                     <h5 class="text-light mt-3">See Ongoing Bid Below!</h5>
                 </div>
             </div>
