@@ -42,8 +42,10 @@ use Illuminate\Support\Facades\Auth;
                     <div style="margin-bottom: 30px;"></div>  
                 </div>
                 <div class="button-text">
+                    @auth('bidder')
                     <a href="#" class="btn btn-make-bid btn-primary text-light mt-3"
                     data-bs-toggle="modal" data-bs-target="#detailsModal">Make A Bid!</a>
+                    @endauth
                     <h5 class="text-light mt-3">See Ongoing Bid Below!</h5>
                 </div>
             </div>
@@ -78,6 +80,7 @@ use Illuminate\Support\Facades\Auth;
     </div>
 </div>
 
+@auth('bidder')
 <!-- Modal -->
 <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 400px">
@@ -122,6 +125,7 @@ use Illuminate\Support\Facades\Auth;
       </div>
     </div>
   </div>
+@endauth
 @endsection
 
 @push('styles')
