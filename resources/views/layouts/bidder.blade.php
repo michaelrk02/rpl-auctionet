@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
             </div>
         @endguest
         @auth('bidder')
-            <div class="col-2 bg-dark"></div>
+            <div class="col-auto bg-dark" style="width: 150px"></div>
                 <div class="nav-item dropdown text-end" >
                     <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person" style="font-weight: bold"></i><span style="margin-left: 5px"></span> Profile
@@ -84,17 +84,17 @@ use Illuminate\Support\Facades\Auth;
     }
     .user-dropdown{
         background-color:#00000094;
-        overflow-wrap: break-word;       
-         width: 120px;
+        width: 150px;
         border: solid 2px;
         box-shadow: 0px 0px 2px 2px #00000080;
 
     }
     .dropdown-item{
-      height: 45px;
+      /*height: 45px;*/
       display: flex;
       align-items: center;
       transition: 0.3s;
+      white-space: normal;
     }
     .dropdown-item:hover{
         background-color:#79797934;
